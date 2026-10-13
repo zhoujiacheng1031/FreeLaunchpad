@@ -12,6 +12,12 @@
 - 布局锁定、隐藏应用、额外扫描目录、登录启动和布局备份。
 - 批量启动、正常退出应用；保存独立的桌面工作组，将应用普通窗口集中到新的 macOS 桌面。
 
+## 下载安装
+
+[下载 FreeLaunchpad 1.8.1 DMG（Apple Silicon）](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases/download/v1.8.1/FreeLaunchpad-1.8.1-macOS-arm64.dmg)。打开磁盘映像，将 FreeLaunchpad 拖入 Applications 后启动。
+
+其他安装包见 [GitHub Releases](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases)。最低 macOS 13；Intel 安装包尚未提供。
+
 ## 构建与运行
 
 需要 macOS 13 或更新版本、Xcode Command Line Tools。没有第三方应用运行依赖。
@@ -22,6 +28,7 @@ cd FreeLaunchpad
 bash icon.sh
 bash build.sh
 bash test.sh
+bash package-dmg.sh
 ```
 
 解压 `dist/FreeLaunchpad-macOS-arm64.zip`，将应用放入 `~/Applications` 或 `/Applications` 后打开。Intel 构建可执行 `FREE_LAUNCHPAD_ARCH=x86_64 bash build.sh`；本次未实测 Intel。
