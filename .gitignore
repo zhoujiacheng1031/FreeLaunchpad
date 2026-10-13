@@ -1,0 +1,6 @@
+build/
+dist/
+.DS_Store
+analysis/**/*.json
+analysis/**/screenshots/
+*.private.json
