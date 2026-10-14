@@ -319,7 +319,7 @@ final class LauncherWindow: NSWindow {
     @MainActor static func main() throws {
         if CommandLine.arguments.contains("--diagnostics") {
             let apps = CatalogScanner.scan(extraPaths: [], excluding: Bundle.main.bundleURL.path)
-            let report: [String: Any] = ["applicationCount": apps.count, "applications": apps.map { ["name": $0.name, "bundleID": $0.bundleID, "path": $0.path] }, "architecture": "native", "version": "1.8.1"]
+            let report: [String: Any] = ["applicationCount": apps.count, "applications": apps.map { ["name": $0.name, "bundleID": $0.bundleID, "path": $0.path] }, "architecture": "native", "version": "1.8.2"]
             let data = try JSONSerialization.data(withJSONObject: report, options: [.prettyPrinted, .sortedKeys])
             FileHandle.standardOutput.write(data)
         } else {

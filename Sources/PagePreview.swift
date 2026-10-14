@@ -65,6 +65,7 @@ struct PagePreview: View {
         return Button { state.toggle(tile.id, selected: !selected) } label: {
             LauncherTileFace(model: model, tile: tile, iconSize: iconSize, labelWidth: max(20, cellWidth - 10), isPreview: true)
                 .frame(width: cellWidth, height: cellHeight)
+                .contentShape(Rectangle())
                 .background(selected ? Color.accentColor.opacity(0.22) : .clear, in: RoundedRectangle(cornerRadius: 12))
                 .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(selected ? Color.accentColor : .clear, lineWidth: 2))
                 .overlay(alignment: .topTrailing) {

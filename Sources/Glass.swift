@@ -23,6 +23,7 @@ struct LauncherGlass: ViewModifier {
 extension View {
     func launcherGlass(radius: CGFloat = 28, interactive: Bool = false) -> some View {
         modifier(LauncherGlass(radius: radius, interactive: interactive))
+            .contentShape(.interaction, RoundedRectangle(cornerRadius: radius, style: .continuous))
     }
 }
 

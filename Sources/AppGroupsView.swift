@@ -55,6 +55,7 @@ struct AppGroupsView: View {
                                         Spacer(minLength: 0)
                                     }.padding(12).frame(maxWidth: .infinity, alignment: .leading)
                                         .background(group.id == state.selectedID ? Color.accentColor.opacity(0.15) : .clear, in: RoundedRectangle(cornerRadius: 12))
+                                        .contentShape(Rectangle())
                                 }.buttonStyle(.plain).accessibilityLabel("工作组：\(group.name)，\(group.apps.count) 个应用")
                             }
                         }
@@ -169,8 +170,9 @@ struct AppGroupEditor: View {
                                 Image(nsImage: model.icon(target.path)).resizable().scaledToFit().frame(width: 32, height: 32)
                                 Text(target.name).lineLimit(1)
                                 if !target.available { Text("不可用").font(.caption).foregroundStyle(.secondary) }
-                            }
-                        }.toggleStyle(.checkbox).padding(8).frame(maxWidth: .infinity, alignment: .leading)
+                                Spacer(minLength: 0)
+                            }.padding(8).frame(maxWidth: .infinity, alignment: .leading).contentShape(Rectangle())
+                        }.toggleStyle(.checkbox).frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
             }.frame(height: 310)

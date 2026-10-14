@@ -1,6 +1,6 @@
 # FreeLaunchpad
 
-免费的原生 macOS 应用启动器，使用 Swift、AppKit 和 SwiftUI 独立实现，MIT 许可。当前版本 **1.8.1**。
+免费的原生 macOS 应用启动器，使用 Swift、AppKit 和 SwiftUI 独立实现，MIT 许可。当前版本 **1.8.2**。
 
 ## 功能
 
@@ -14,7 +14,7 @@
 
 ## 下载安装
 
-[下载 FreeLaunchpad 1.8.1 DMG（Apple Silicon）](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases/download/v1.8.1/FreeLaunchpad-1.8.1-macOS-arm64.dmg)。打开磁盘映像，将 FreeLaunchpad 拖入 Applications 后启动。
+[下载 FreeLaunchpad 1.8.2 DMG（Apple Silicon）](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases/download/v1.8.2/FreeLaunchpad-1.8.2-macOS-arm64.dmg)。打开磁盘映像，将 FreeLaunchpad 拖入 Applications 后启动。
 
 其他安装包见 [GitHub Releases](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases)。最低 macOS 13；Intel 安装包尚未提供。
 
