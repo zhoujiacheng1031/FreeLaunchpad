@@ -69,6 +69,14 @@ import AppKit
         check(mcDisplay([emptyDock]) == nil, "Empty retained mc group is not visible Mission Control")
         check(mcDisplay([modernManager], screen: 33) == nil, "Never create on a different monitor")
 
+        let readyDisplay = MCNode(id: "mc.display", display: 2, children: [MCNode(id: "mc.spaces", children: [MCNode(id: "mc.spaces.list"), MCNode(id: "mc.spaces.add")])])
+        func mcReady(_ display: MCNode?) -> Bool {
+            MissionControlTree.isReady(display, identifier: { $0.id }, children: { $0.children })
+        }
+        check(!mcReady(mainDisplay), "A retained display without space controls must reopen Mission Control")
+        check(mcReady(readyDisplay), "A display with both space controls is ready")
+        check(!mcReady(nil), "Missing display must open Mission Control")
+
         var membershipReads = 0
         let confirmedMove = try await WorkspaceMembership.confirm(target: 88, read: {
             membershipReads += 1

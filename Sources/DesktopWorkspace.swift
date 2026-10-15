@@ -22,6 +22,17 @@ enum WorkspaceError: LocalizedError {
 /// Traversal is shared by live AX elements and recorded topology regression fixtures.
 enum MissionControlTree {
     static let hostBundleIDs = ["com.apple.WindowManager", "com.apple.dock"]
+    static func isReady<Node>(_ display: Node?, identifier: (Node) -> String?, children: (Node) -> [Node]) -> Bool {
+        guard let display else { return false }
+        var found = Set<String>()
+        func walk(_ node: Node, depth: Int) {
+            if let id = identifier(node), id == "mc.spaces.add" || id == "mc.spaces.list" { found.insert(id) }
+            guard depth < 8 else { return }
+            for child in children(node) { walk(child, depth: depth + 1) }
+        }
+        walk(display, depth: 0)
+        return found.contains("mc.spaces.add") && found.contains("mc.spaces.list")
+    }
     static func display<Node>(in roots: [Node], screenID: UInt32,
                               identifier: (Node) -> String?, displayID: (Node) -> UInt32?,
                               children: (Node) -> [Node]) -> Node? {
@@ -177,8 +188,8 @@ enum WorkspaceMembership {
         }
         let before = try displaySpaces(screen)
         // The Dock can retain an empty Mission Control group after it closes.
-        // Only a populated display means Mission Control is actually visible.
-        if missionControlDisplay(screen: screen) == nil {
+        // A retained display alone is not enough: its desktop controls must be populated.
+        if !MissionControlTree.isReady(missionControlDisplay(screen: screen), identifier: { self.attribute($0, kAXIdentifierAttribute) as? String }, children: children) {
             let config = NSWorkspace.OpenConfiguration()
             try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
                 NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: "/System/Applications/Mission Control.app"), configuration: config) { _, error in

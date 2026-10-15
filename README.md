@@ -1,6 +1,6 @@
 # FreeLaunchpad
 
-免费的原生 macOS 应用启动器，使用 Swift、AppKit 和 SwiftUI 独立实现，MIT 许可。当前版本 **1.8.2**。
+免费的原生 macOS 应用启动器，使用 Swift、AppKit 和 SwiftUI 独立实现，MIT 许可。当前版本 **1.8.3**。
 
 ## 功能
 
@@ -14,7 +14,7 @@
 
 ## 下载安装
 
-[下载 FreeLaunchpad 1.8.2 DMG（Apple Silicon）](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases/download/v1.8.2/FreeLaunchpad-1.8.2-macOS-arm64.dmg)。打开磁盘映像，将 FreeLaunchpad 拖入 Applications 后启动。
+[下载 FreeLaunchpad 1.8.3 DMG（Apple Silicon）](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases/download/v1.8.3/FreeLaunchpad-1.8.3-macOS-arm64.dmg)。打开磁盘映像，将 FreeLaunchpad 拖入 Applications 后启动。
 
 其他安装包见 [GitHub Releases](https://github.com/zhoujiacheng1031/FreeLaunchpad/releases)。最低 macOS 13；Intel 安装包尚未提供。
 
@@ -48,7 +48,7 @@ bash package-dmg.sh
 
 ## 验证与限制
 
-259 项回归检查通过。在 macOS 27.0.1、Apple Silicon 上实测：新建及切换桌面，启动计算器与时钟进入目标桌面，将两者已运行的普通窗口移入同一新桌面，以及批量正常退出。每个窗口移动成功均检查实际桌面归属。更多验收范围见[验证说明](docs/TESTING.md)。
+262 项回归检查通过。在 macOS 27.0.1、Apple Silicon 上实测：新建及切换桌面，启动计算器与时钟进入目标桌面，将两者已运行的普通窗口移入同一新桌面，以及批量正常退出。每个窗口移动成功均检查实际桌面归属。更多验收范围见[验证说明](docs/TESTING.md)。
 
 桌面集成使用辅助功能与动态探测的非公开 SkyLight 接口，可能随系统升级改变。全屏、固定到特定桌面、显示在多个桌面和后续新开的窗口可能需要手动调整。每次点击创建新桌面，暂不复用已有桌面；退出应用不会删除桌面。应用使用正常退出，保存提示需在对应应用处理。
 

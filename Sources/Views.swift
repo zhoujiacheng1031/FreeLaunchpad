@@ -306,7 +306,7 @@ struct SettingsView: View {
                     if !model.backupStatus.isEmpty { Text(model.backupStatus).font(.caption).foregroundStyle(.secondary) }
                     Button("打开数据目录") { NSWorkspace.shared.open(model.stateURL.deletingLastPathComponent()) }
                 }
-                Section("FreeLaunchpad 1.8.2") {
+                Section("FreeLaunchpad 1.8.3") {
                     Text("免费、开源、离线运行。独立实现的 macOS 应用启动器。")
                     Text("双指滚动翻页；四指全局捏合与旧 Launchpad 数据迁移暂未实现。").font(.caption).foregroundStyle(.secondary)
                 }
